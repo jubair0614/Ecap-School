@@ -4,6 +4,9 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Web.Http;
+using Ecap_School.ActionResultAttributes;
+using Ecap_School.Handlers;
+using FluentValidation.WebApi;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 
@@ -20,6 +23,9 @@ namespace Ecap_School
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
+            config.Filters.Add(new ValidateModelStateFilter());
+            config.MessageHandlers.Add(new ResponseWrappingHandler());
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 
@@ -28,6 +34,8 @@ namespace Ecap_School
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            FluentValidationModelValidatorProvider.Configure(config);
         }
     }
 }
