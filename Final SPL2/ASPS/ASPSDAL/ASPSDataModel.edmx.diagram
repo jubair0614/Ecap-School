@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d80507726e4b40e6bc1f44ea10c6a1e2" Name="Diagram1">
+        <EntityTypeShape EntityType="ASPSModel.Content" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASPSModel.Course" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASPSModel.CourseRecommendation" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASPSModel.Faculty" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASPSModel.Faculty" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASPSModel.SystemAdministrator" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="ASPSModel.FK_Content_Faculty" ManuallyRouted="false" />
+        <AssociationConnector Association="ASPSModel.FK_Course_Faculty" ManuallyRouted="false" />
+        <AssociationConnector Association="ASPSModel.FK_CourseRecommendation_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="ASPSModel.FK_CourseRecommendation_Faculty" ManuallyRouted="false" />
+        <AssociationConnector Association="ASPSModel.FK_CourseRecommendation_Faculty" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

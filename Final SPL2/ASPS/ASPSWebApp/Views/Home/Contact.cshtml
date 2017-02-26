@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2 class="container">@ViewBag.Title</h2>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sign Up<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>@Html.ActionLink("Student", "StudentSignUp", "SignUp")</li>
+                    <li>@Html.ActionLink("Faculty", "FacultySignUp", "SignUp")</li>
+                </ul>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sign In<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>@Html.ActionLink("Student", "StudentSignIn", "SignIn")</li>
+                    <li>@Html.ActionLink("Faculty", "FacultySignIn", "SignIn")</li>
+                    <li>@Html.ActionLink("System Admin", "SystemAdminSignIn", "SignIn")</li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container body-content">
+    <address>
+        Md. Jubair Ibna Mostafa<br />
+        Fazlul Huq Muslim Hall<br />
+        <abbr title="Mobile">M:</abbr>
+        01783905098
+    </address>
+</div>

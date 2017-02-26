@@ -1,0 +1,32 @@
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\roslyn\csc.exe
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\roslyn\vbc.exe
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\roslyn\VBCSCompiler.exe
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\Cric Card.dll.config
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\Cric Card.dll
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\Cric Card.pdb
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\Microsoft.AI.Web.dll
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\Microsoft.ApplicationInsights.dll
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\Microsoft.AI.Web.xml
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\Microsoft.ApplicationInsights.xml
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\obj\Debug\Cric Card.csprojResolveAssemblyReference.cache
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\obj\Debug\Cric Card.dll
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Cric Card\Cric Card\obj\Debug\Cric Card.pdb

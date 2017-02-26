@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="myDemo">
+<head>
+    <title>Angualr Learning</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+    <div data-ng-controller="SimpleController">
+        Name
+        <br />
+        <input type="text" data-ng-model="name">
+        <br />
+
+        <ul>
+            <li ng-repeat="cust in customers | filter:name | orderBy:'city'"> {{ cust.name }} - {{ cust.city }} </li>
+        </ul>
+
+    </div>
+
+    <script type="text/javascript" src="scripts/angular.min.js"></script>
+
+<script type="text/javascript">
+
+    var demoApp = angular.module('demoApp', []);
+
+    function SimpleController($scope) {
+        $scope.customers = [
+            { name: 'John legend', city: 'New York' },
+            { name: 'Jubair', city: 'Dhaka' },
+            { name: 'Habib', city: 'Commilla' }
+        ];
+    }
+
+    demoApp.controller('SimpleController', SimpleController);
+</script>
+
+</body>
+</html>

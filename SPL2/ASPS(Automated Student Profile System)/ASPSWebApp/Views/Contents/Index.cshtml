@@ -1,0 +1,48 @@
+﻿@using ASPSDAL
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                @{
+                    if ((Session["Student"]) != null)
+                    {
+                        <li>@Html.ActionLink(((Student) Session["Student"]).Name, "Index", "StudentProfile")</li>
+                    }
+                }
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Activity<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>@Html.ActionLink("Edit Basic Information", "Edit", "StudentProfile")</li>
+                    <li>@Html.ActionLink("Change Password", "ChangePassword", "StudentProfile")</li>
+                    <li>@Html.ActionLink("Add Content", "Index", "Contents")</li>
+                </ul>
+                <li>@Html.ActionLink("Sign Out", "SignOut", "SignIn")</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Add content</h2>
+    @using ( Html.BeginForm("Index", "Contents", FormMethod.Post, new {enctype = "multipart/form-data"}))
+    {
+        <div>
+            <label class="col-md-2">File type</label>
+            <input type="text" name="type" class="form-control"/>
+            <br/>
+        </div>
+        <div>
+            <label class="col-md-2">File description</label>
+            <input type="text" name="description" class="form-control"/>
+            <br/>
+        </div>
+        
+        <input type="file" class="btn btn-primary active" id="filebtn" value="choose a file" name="file"/>
+        <input type="submit" value="upload" id="fileSubmit" class="btn btn-default" name="fileSubmit"/>
+
+        <p>@ViewBag.Message</p>
+        <p>@ViewBag.error</p>
+    }
+</div>

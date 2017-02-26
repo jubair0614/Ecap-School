@@ -1,0 +1,10 @@
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\OnlineShoppingStore\OnlineShoppingStore.Domain\bin\Debug\OnlineShoppingStore.Domain.dll.config
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\OnlineShoppingStore\OnlineShoppingStore.Domain\bin\Debug\OnlineShoppingStore.Domain.dll
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\OnlineShoppingStore\OnlineShoppingStore.Domain\bin\Debug\OnlineShoppingStore.Domain.pdb
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\OnlineShoppingStore\OnlineShoppingStore.Domain\bin\Debug\EntityFramework.dll
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\OnlineShoppingStore\OnlineShoppingStore.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\OnlineShoppingStore\OnlineShoppingStore.Domain\bin\Debug\EntityFramework.xml
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\OnlineShoppingStore\OnlineShoppingStore.Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\OnlineShoppingStore\OnlineShoppingStore.Domain\obj\Debug\OnlineShoppingStore.Domain.csprojResolveAssemblyReference.cache
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\OnlineShoppingStore\OnlineShoppingStore.Domain\obj\Debug\OnlineShoppingStore.Domain.dll
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\OnlineShoppingStore\OnlineShoppingStore.Domain\obj\Debug\OnlineShoppingStore.Domain.pdb

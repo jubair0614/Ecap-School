@@ -1,0 +1,82 @@
+﻿@using ASPSDAL
+@model IEnumerable<ASPSDAL.Student>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                @{
+                    if ((Session["Faculty"]) != null)
+                    {
+                        <li>@Html.ActionLink(((Faculty)Session["Faculty"]).Name, "Index", "FacultyProfile")</li>
+                    }
+                }
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Activity<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>@Html.ActionLink("Edit Basic Information", "Edit", "FacultyProfile")</li>
+                    <li>@Html.ActionLink("Change Password", "ChangePassword", "FacultyProfile")</li>
+                    <li>@Html.ActionLink("Visit Student Profile", "VisitStudentProfile", "FacultyProfile")</li>
+                    <li>@Html.ActionLink("Recommend Student", "Index", "CourseRecommendations")</li>
+                </ul>
+                <li>@Html.ActionLink("Sign Out", "SignOut", "SignIn")</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Students List</h2>
+    
+    @foreach (var item in Model)
+    {
+        <div>
+            <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".item" style="width: 100%;">@Html.DisplayFor(modelItem => item.Name)</button>
+            <div class="item collapse">
+                <dl class="dl-horizontal">
+                    <dt>
+                        Email
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.StudentEmail)
+                    </dd>
+                    <dt>
+                        Blood Group
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.BloodGroup)
+                    </dd>
+                   
+                    <dt>
+                        Address
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </dd>
+                    <dt>
+                        Mobile Number
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.MobileNumber)
+                    </dd>
+                    <dt>
+                        Roll
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.Roll)
+                    </dd>
+                    <dt>
+                        Result
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.Result)
+                    </dd>
+                </dl>
+            </div>
+            <hr/>
+        </div>
+    }
+
+</div>

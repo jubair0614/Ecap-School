@@ -1,0 +1,54 @@
+﻿@using System.Web.Mvc.Html
+@using ASPSDataModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink(((SystemAdministrator)Session["SystemAdministrator"]).Name, "Index", "AdminProfile")</li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                @*<li><a href="@Url.Action("Index", "Search")"><span class="glyphicon glyphicon-search"></span>Search</a></li>*@
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Update<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>@Html.ActionLink("Course", "Index", "Courses")</li>
+                        <li>@Html.ActionLink("Result", "Index", "Results")</li>
+                    </ul>
+                <li><a href="@Url.Action("Index", "Home")"><span class="glyphicon glyphicon-log-out"></span>SignOut</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+@{
+    string name = Context.User.Identity.Name;
+    SystemAdministrator systemAdministrator = new SystemAdminRepository().FindSystemAdmin(name);
+}
+<div class="container">
+    <h2>Basic Information</h2>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>Name</dt>
+        <dd>@systemAdministrator.Name</dd>
+        <dt>Email</dt>
+        <dd>@systemAdministrator.SystemAdministratorEmail</dd>
+        <dt>Address</dt>
+        <dd>@systemAdministrator.Address</dd>
+        <dt>Blood Group</dt>
+        <dd>@systemAdministrator.BloodGroup</dd>
+        <dt>Religion</dt>
+        <dd>@systemAdministrator.Religion</dd>
+        <dt>Mobile Number</dt>
+        <dd>@systemAdministrator.MobileNumber</dd>
+    </dl>
+    <hr/>
+    <p>
+        @Html.ActionLink("Edit", "Edit", "AdminProfile",  new { id = @systemAdministrator.SystemAdministratorEmail })
+    </p>
+</div>

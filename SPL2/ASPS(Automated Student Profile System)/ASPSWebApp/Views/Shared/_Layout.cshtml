@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASPS</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+@*
+@model ASPSDAL.Admin
+@model ASPSDAL.Faculty
+@model ASPSDAL.Student
+*@
+
+<body>
+@*<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @{
+                        if (Session["Student"] != null)
+                        {
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+
+                        }
+                        else if (Session["Faculty"] != null)
+                        {
+                            <li>@Html.ActionLink(Model.Name, "Index", "FacultyProfile")</li>
+                        }
+                        else if (Session["Admin"] != null)
+                        {
+                            <li>@Html.ActionLink(Model.Name, "Index", "AdminProfile")</li>
+                        }
+                        else
+                        {
+                            <li> @Html.ActionLink("Home", "Index", "Home") </li>
+                            <li> @Html.ActionLink("About", "About", "Home") </li>
+                            <li> @Html.ActionLink("Contact", "Contact", "Home") </li>
+                        }
+                    }    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sign Up<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Student", "StudentSignUp", "SignUp")</li>
+                            <li>@Html.ActionLink("Faculty", "FacultySignUp", "SignUp")</li>
+                        </ul>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sign In<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Student", "StudentSignIn", "SignIn")</li>
+                            <li>@Html.ActionLink("Faculty", "FacultySignIn", "SignIn")</li>
+                            <li>@Html.ActionLink("Admin", "AdminSignIn", "SignIn")</li>
+                        </ul>
+                </ul>
+            </div>
+        </div>
+    </div>*@
+
+    <div class="container body-content">
+        @RenderBody()
+        <footer id="footer" class="container">
+            <hr />
+            <p>&copy; @DateTime.Now.Year - Md. Jubair Ibna Mostafa</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,163 @@
+﻿@using ASPSDAL
+@model ASPSDAL.Student
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @{
+                    if ((Session["Student"]) != null)
+                    {
+                <li>@Html.ActionLink(((Student)Session["Student"]).Name, "Index", "StudentProfile")</li>
+                    }
+                    }
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Activity<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Edit Basic Information", "Edit", "StudentProfile")</li>
+                            <li>@Html.ActionLink("Change Password", "ChangePassword", "StudentProfile")</li>
+                            <li>@Html.ActionLink("Add Content", "Index", "Contents")</li>
+                        </ul>
+                    <li>@Html.ActionLink("Sign Out", "SignOut", "SignIn")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+<div class="container">
+        <h4>Student</h4>
+        @*<div>
+            <img src="~/Content/images/default-person.png" width="200" height="200" />
+        </div>
+        <div>
+            <input type="button" class="btn btn-default" value="Upload" name="imgUpload" />
+        </div>*@
+
+        <h3>Basic Information</h3>
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dt>
+                Name
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                Email
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StudentEmail)
+            </dd>
+
+            <dt>
+                Blood Group
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BloodGroup)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Religion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Religion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MobileNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MobileNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+        </dl>
+        <hr />
+    </div>
+<div class="container">
+    <h3>Academic Information</h3>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Roll)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Roll)
+        </dd>
+
+        <dt>
+            Registration Number
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistrationNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Result)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Result)
+        </dd>
+    </dl>
+    <hr/>
+</div>
+<div class="container">
+    <h3>Content Information</h3>
+    <hr/>
+    @{
+        ContentRepository contentRepository = new ContentRepository();
+
+        List<Content> contents = contentRepository.GetContentsByStudentId(Model.StudentID);
+        foreach (var content in contents)
+        {
+            <dl class="dl-horizontal">
+                <dt>
+                    Type
+                </dt>
+                <dd>
+                    @content.ContentType
+                </dd>
+                <dt>
+                    File Name
+                </dt>
+                <dd>
+                    @content.ContentPath
+                </dd>
+                <dt>
+                    Description
+                </dt>
+                <dd>
+                    @content.ContentDescription
+                </dd>
+            </dl>
+            <hr />
+        }
+    }
+    
+</div>
+

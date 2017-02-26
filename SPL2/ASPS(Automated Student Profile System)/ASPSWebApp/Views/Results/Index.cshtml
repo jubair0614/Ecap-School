@@ -1,0 +1,76 @@
+﻿@using ASPSDAL
+@model IEnumerable<ASPSDAL.Result>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                @{
+                    if (((Admin)Session["Admin"]) != null)
+                    {
+                        <li>@Html.ActionLink(((Admin)Session["Admin"]).Name, "Index", "AdminProfile")</li>
+                    }
+                }
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Activity<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>@Html.ActionLink("Edit Basic Information", "Edit", "AdminProfile")</li>
+                        <li>@Html.ActionLink("Change Password", "ChangePassword", "AdminProfile")</li>
+                        <li>@Html.ActionLink("Course", "Index", "Courses")</li>
+                        <li>@Html.ActionLink("Result", "Index", "Results")</li>
+                    </ul>
+                <li>@Html.ActionLink("Sign Out", "SignOut", "SignIn")</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CoursePoint)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Course.CourseCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.StudentEmail)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoursePoint)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course.CourseCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.StudentEmail)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ResultID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ResultID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ResultID })
+        </td>
+    </tr>
+}
+
+</table>

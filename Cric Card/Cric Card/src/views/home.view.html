@@ -1,0 +1,23 @@
+﻿<div class="container text-center">
+    {{ vm.message }}
+    <form>
+        <div class="form-group col-sm-6">
+            <label>Select two teams</label>
+            <select class="form-control" id="firstTeam" ng-model="firstTeam">
+                <option ng-repeat="team in vm.teams">{{team}}</option>
+            </select>
+        </div>
+        <div class="form-group col-sm-6">
+            <label>Select two teams</label>
+            <select class="form-control" id="secondTeam" ng-model="secondTeam">
+                <option ng-repeat="team in vm.teams">{{team}}</option>
+            </select>
+        </div>
+    </form>
+
+    <div class="col-sm-4">
+        {{firstTeam}} <input type="radio" name="batBall" /><br />
+        {{secondTeam}} <input type="radio" name="batBall" /><br />
+    </div>
+
+</div>

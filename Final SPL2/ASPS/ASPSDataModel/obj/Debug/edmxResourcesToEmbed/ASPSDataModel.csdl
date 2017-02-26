@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ASPSDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Content">
+    <Key>
+      <PropertyRef Name="ContentID" />
+    </Key>
+    <Property Name="ContentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ContentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="StudentEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ContentType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ContentDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_Content_Student" FromRole="Content" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="CourseID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CourseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SemesterNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CourseRecommendations" Relationship="Self.FK_CourseRecommendation_Course" FromRole="Course" ToRole="CourseRecommendation" />
+    <NavigationProperty Name="Results" Relationship="Self.FK_Result_Course" FromRole="Course" ToRole="Result" />
+  </EntityType>
+  <EntityType Name="CourseRecommendation">
+    <Key>
+      <PropertyRef Name="FacultyEmail" />
+      <PropertyRef Name="StudentEmail" />
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="FacultyEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StudentEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CourseID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CourseRating" Type="Int32" />
+    <NavigationProperty Name="Course" Relationship="Self.FK_CourseRecommendation_Course" FromRole="CourseRecommendation" ToRole="Course" />
+    <NavigationProperty Name="Faculty" Relationship="Self.FK_CourseRecommendation_Faculty" FromRole="CourseRecommendation" ToRole="Faculty" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_CourseRecommendation_Student" FromRole="CourseRecommendation" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Faculty">
+    <Key>
+      <PropertyRef Name="FacultyEmail" />
+    </Key>
+    <Property Name="FacultyEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BloodGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Religion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNumber" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CourseRecommendations" Relationship="Self.FK_CourseRecommendation_Faculty" FromRole="Faculty" ToRole="CourseRecommendation" />
+  </EntityType>
+  <EntityType Name="Result">
+    <Key>
+      <PropertyRef Name="StudentEmail" />
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="StudentEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CourseID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CourseGrade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CoursePoint" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CourseNumber" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="Course" Relationship="Self.FK_Result_Course" FromRole="Result" ToRole="Course" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_Result_Student" FromRole="Result" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentEmail" />
+    </Key>
+    <Property Name="StudentEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BloodGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Religion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Roll" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RegistrationNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Result" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MobileNumber" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="Contents" Relationship="Self.FK_Content_Student" FromRole="Student" ToRole="Content" />
+    <NavigationProperty Name="CourseRecommendations" Relationship="Self.FK_CourseRecommendation_Student" FromRole="Student" ToRole="CourseRecommendation" />
+    <NavigationProperty Name="Results" Relationship="Self.FK_Result_Student" FromRole="Student" ToRole="Result" />
+  </EntityType>
+  <EntityType Name="SystemAdministrator">
+    <Key>
+      <PropertyRef Name="SystemAdministratorEmail" />
+    </Key>
+    <Property Name="SystemAdministratorEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Religion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BloodGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNumber" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <Association Name="FK_Content_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="Content" Type="Self.Content" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentEmail" />
+      </Principal>
+      <Dependent Role="Content">
+        <PropertyRef Name="StudentEmail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseRecommendation_Course">
+    <End Role="Course" Type="Self.Course" Multiplicity="1" />
+    <End Role="CourseRecommendation" Type="Self.CourseRecommendation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="CourseRecommendation">
+        <PropertyRef Name="CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Result_Course">
+    <End Role="Course" Type="Self.Course" Multiplicity="1" />
+    <End Role="Result" Type="Self.Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="Result">
+        <PropertyRef Name="CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseRecommendation_Faculty">
+    <End Role="Faculty" Type="Self.Faculty" Multiplicity="1" />
+    <End Role="CourseRecommendation" Type="Self.CourseRecommendation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faculty">
+        <PropertyRef Name="FacultyEmail" />
+      </Principal>
+      <Dependent Role="CourseRecommendation">
+        <PropertyRef Name="FacultyEmail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseRecommendation_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="CourseRecommendation" Type="Self.CourseRecommendation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentEmail" />
+      </Principal>
+      <Dependent Role="CourseRecommendation">
+        <PropertyRef Name="StudentEmail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Result_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="Result" Type="Self.Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentEmail" />
+      </Principal>
+      <Dependent Role="Result">
+        <PropertyRef Name="StudentEmail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ASPSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Contents" EntityType="Self.Content" />
+    <EntitySet Name="Courses" EntityType="Self.Course" />
+    <EntitySet Name="CourseRecommendations" EntityType="Self.CourseRecommendation" />
+    <EntitySet Name="Faculties" EntityType="Self.Faculty" />
+    <EntitySet Name="Results" EntityType="Self.Result" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="SystemAdministrators" EntityType="Self.SystemAdministrator" />
+    <AssociationSet Name="FK_Content_Student" Association="Self.FK_Content_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Content" EntitySet="Contents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseRecommendation_Course" Association="Self.FK_CourseRecommendation_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="CourseRecommendation" EntitySet="CourseRecommendations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Result_Course" Association="Self.FK_Result_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Result" EntitySet="Results" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseRecommendation_Faculty" Association="Self.FK_CourseRecommendation_Faculty">
+      <End Role="Faculty" EntitySet="Faculties" />
+      <End Role="CourseRecommendation" EntitySet="CourseRecommendations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseRecommendation_Student" Association="Self.FK_CourseRecommendation_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="CourseRecommendation" EntitySet="CourseRecommendations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Result_Student" Association="Self.FK_Result_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Result" EntitySet="Results" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

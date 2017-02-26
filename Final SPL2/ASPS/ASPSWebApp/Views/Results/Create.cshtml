@@ -1,0 +1,126 @@
+﻿@using System.Web.UI.WebControls
+@using ASPSDataModel
+@model ASPSDataModel.Result
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink(((SystemAdministrator)Session["SystemAdministrator"]).Name, "Index", "AdminProfile")</li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                @*<li><a href="@Url.Action("Index", "Search")"><span class="glyphicon glyphicon-search"></span>Search</a></li>*@
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Update<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>@Html.ActionLink("Course", "Index", "Courses")</li>
+                        <li>@Html.ActionLink("Result", "Index", "Results")</li>
+                    </ul>
+                <li><a href="@Url.Action("Index", "Home")"><span class="glyphicon glyphicon-log-out"></span>SignOut</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+@{
+    var gradeItems = new List<ListItem>
+    {
+          new ListItem { Text = "F", Value="F" },
+          new ListItem { Text = "D", Value="D" },
+          new ListItem { Text = "C", Value="C" },
+          new ListItem { Text = "C+", Value="C+" },
+          new ListItem { Text = "B-", Value="B-" },
+          new ListItem { Text = "B", Value="B" },
+          new ListItem { Text = "B+", Value="B+" },
+          new ListItem { Text = "A-", Value="A-" },
+          new ListItem { Text = "A", Value="A" },
+          new ListItem { Text = "A+", Value="A+" }
+    };
+
+        var pointItems = new List<ListItem>
+    {
+          new ListItem { Text = "0.00", Value="0.00" },
+          new ListItem { Text = "2.00", Value="2.00" },
+          new ListItem { Text = "2.25", Value="2.25" },
+          new ListItem { Text = "2.50", Value="2.50" },
+          new ListItem { Text = "2.75", Value="2.75" },
+          new ListItem { Text = "3.00", Value="3.00" },
+          new ListItem { Text = "3.25", Value="3.25" },
+          new ListItem { Text = "3.50", Value="3.50" },
+          new ListItem { Text = "3.75", Value="3.75" },
+          new ListItem { Text = "4.00", Value="4.00" }
+    };
+
+}
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Result</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.StudentEmail, "StudentEmail", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("StudentEmail", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.StudentEmail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CourseID, "CourseID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CourseID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CourseID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CourseGrade, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CourseGrade", new SelectList(gradeItems, "Value", "Text"),new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CourseGrade, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CoursePoint, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CoursePoint" , new SelectList(pointItems, "Value", "Text"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CoursePoint, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CourseNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CourseNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CourseNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

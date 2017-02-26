@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ASPSDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Content">
+    <Key>
+      <PropertyRef Name="ContentID" />
+    </Key>
+    <Property Name="ContentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContentPath" Type="varchar(max)" />
+    <Property Name="StudentEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContentType" Type="varchar" MaxLength="50" />
+    <Property Name="ContentDescription" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="CourseID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CourseName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SemesterNumber" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CourseRecommendation">
+    <Key>
+      <PropertyRef Name="FacultyEmail" />
+      <PropertyRef Name="StudentEmail" />
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="FacultyEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StudentEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CourseID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CourseRating" Type="int" />
+  </EntityType>
+  <EntityType Name="Faculty">
+    <Key>
+      <PropertyRef Name="FacultyEmail" />
+    </Key>
+    <Property Name="FacultyEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="BloodGroup" Type="varchar" MaxLength="50" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" />
+    <Property Name="Religion" Type="varchar" MaxLength="50" />
+    <Property Name="MobileNumber" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Designation" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Result">
+    <Key>
+      <PropertyRef Name="StudentEmail" />
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="StudentEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CourseID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CourseGrade" Type="varchar" MaxLength="50" />
+    <Property Name="CoursePoint" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="CourseNumber" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentEmail" />
+    </Key>
+    <Property Name="StudentEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="BloodGroup" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="Religion" Type="varchar" MaxLength="50" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" />
+    <Property Name="Roll" Type="varchar" MaxLength="50" />
+    <Property Name="RegistrationNumber" Type="varchar" MaxLength="50" />
+    <Property Name="Result" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MobileNumber" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="SystemAdministrator">
+    <Key>
+      <PropertyRef Name="SystemAdministratorEmail" />
+    </Key>
+    <Property Name="SystemAdministratorEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="Religion" Type="varchar" MaxLength="50" />
+    <Property Name="BloodGroup" Type="varchar" MaxLength="50" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" />
+    <Property Name="MobileNumber" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <Association Name="FK_Content_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="Content" Type="Self.Content" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentEmail" />
+      </Principal>
+      <Dependent Role="Content">
+        <PropertyRef Name="StudentEmail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseRecommendation_Course">
+    <End Role="Course" Type="Self.Course" Multiplicity="1" />
+    <End Role="CourseRecommendation" Type="Self.CourseRecommendation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="CourseRecommendation">
+        <PropertyRef Name="CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseRecommendation_Faculty">
+    <End Role="Faculty" Type="Self.Faculty" Multiplicity="1" />
+    <End Role="CourseRecommendation" Type="Self.CourseRecommendation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faculty">
+        <PropertyRef Name="FacultyEmail" />
+      </Principal>
+      <Dependent Role="CourseRecommendation">
+        <PropertyRef Name="FacultyEmail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseRecommendation_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="CourseRecommendation" Type="Self.CourseRecommendation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentEmail" />
+      </Principal>
+      <Dependent Role="CourseRecommendation">
+        <PropertyRef Name="StudentEmail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Result_Course">
+    <End Role="Course" Type="Self.Course" Multiplicity="1" />
+    <End Role="Result" Type="Self.Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="Result">
+        <PropertyRef Name="CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Result_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="Result" Type="Self.Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentEmail" />
+      </Principal>
+      <Dependent Role="Result">
+        <PropertyRef Name="StudentEmail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ASPSDataModelStoreContainer">
+    <EntitySet Name="Content" EntityType="Self.Content" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CourseRecommendation" EntityType="Self.CourseRecommendation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Faculty" EntityType="Self.Faculty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Result" EntityType="Self.Result" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SystemAdministrator" EntityType="Self.SystemAdministrator" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Content_Student" Association="Self.FK_Content_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Content" EntitySet="Content" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseRecommendation_Course" Association="Self.FK_CourseRecommendation_Course">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="CourseRecommendation" EntitySet="CourseRecommendation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseRecommendation_Faculty" Association="Self.FK_CourseRecommendation_Faculty">
+      <End Role="Faculty" EntitySet="Faculty" />
+      <End Role="CourseRecommendation" EntitySet="CourseRecommendation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseRecommendation_Student" Association="Self.FK_CourseRecommendation_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="CourseRecommendation" EntitySet="CourseRecommendation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Result_Course" Association="Self.FK_Result_Course">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="Result" EntitySet="Result" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Result_Student" Association="Self.FK_Result_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Result" EntitySet="Result" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

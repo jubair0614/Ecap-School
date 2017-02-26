@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                @*<li>@Html.ActionLink("Search", "Search", "Search")</li>*@
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sign Up<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>@Html.ActionLink("Student", "StudentSignUp", "SignUp")</li>
+                    <li>@Html.ActionLink("Faculty", "FacultySignUp", "SignUp")</li>
+                </ul>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sign In<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>@Html.ActionLink("Student", "StudentSignIn", "SignIn")</li>
+                    <li>@Html.ActionLink("Faculty", "FacultySignIn", "SignIn")</li>
+                    <li>@Html.ActionLink("Admin", "AdminSignIn", "SignIn")</li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <p>Automated Student Profile (ASP) is a system that stores all academic related information of students and provides searching option with rank based result. There is a high demand of knowing the qualification of a student and his/her academic career for various reasons such as matching between prospective job fields and students. This can be done using a consolidated automated student profiling system. In IIT, there are two semesters in each year. Each semester there are 6 courses and individual or group projects. An Intern opportunity for every student is also provided. There are nothing like ASP that ensure automated system for storing the details of a student (academic results, achievements and efficiency). ASP will help to find any information about a student in our organization. Here, intern and recruitment process of students will be possible efficiently by the special and general searching options.</p>
+</div>

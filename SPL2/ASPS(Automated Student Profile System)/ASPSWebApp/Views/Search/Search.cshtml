@@ -1,0 +1,60 @@
+﻿@using ASPSDAL
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>@Html.ActionLink("Search", "Index", "Search")</li>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sign Up<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>@Html.ActionLink("Student", "StudentSignUp", "SignUp")</li>
+                    <li>@Html.ActionLink("Faculty", "FacultySignUp", "SignUp")</li>
+                </ul>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sign In<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>@Html.ActionLink("Student", "StudentSignIn", "SignIn")</li>
+                    <li>@Html.ActionLink("Faculty", "FacultySignIn", "SignIn")</li>
+                    <li>@Html.ActionLink("Admin", "AdminSignIn", "SignIn")</li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h3>Search</h3>
+    <hr/>
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            <label class="control-label col-md-2">Course</label>
+            <input type="text" class="form-control" placeholder="CSE 503" name="course"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Semester</label>
+            <input type="text" class="form-control" placeholder="0 - 8" name="semester"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Course Number</label>
+            <input type="number" class="form-control" placeholder="0-100" name="courseNumber" />
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Result</label>
+            <input type="number" class="form-control" placeholder="4.00" name="result"/>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Search" class="btn btn-default"/>
+            </div>
+        </div>
+    }
+</div>

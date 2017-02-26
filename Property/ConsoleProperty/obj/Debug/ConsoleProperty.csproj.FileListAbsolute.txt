@@ -1,0 +1,6 @@
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Property\ConsoleProperty\bin\Debug\ConsoleProperty.exe.config
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Property\ConsoleProperty\bin\Debug\ConsoleProperty.exe
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Property\ConsoleProperty\bin\Debug\ConsoleProperty.pdb
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Property\ConsoleProperty\obj\Debug\ConsoleProperty.csprojResolveAssemblyReference.cache
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Property\ConsoleProperty\obj\Debug\ConsoleProperty.exe
+C:\Users\JUBU\Documents\Visual Studio 2015\Projects\Property\ConsoleProperty\obj\Debug\ConsoleProperty.pdb
